@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Aniket Singh">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Employee</title>
+    <script>
+        function validateForm() 
+        {
+          let x = document.forms["createform"]["name"].value;
+          if (x == "") 
+          {
+            alert("Name must be filled out");
+            return false;
+          }
+          if (x<=65)
+          {
+            alert("Please Enter Only Characters");
+          }
+
+            let phone = document.forms["createform"]["phone_num"].value;
+            var phoneno = /^\d{10}$/;
+            if(phone.match(phoneno))
+                {
+            return true;
+                }
+            else
+                {
+                alert("Phone number must be 10 digits long.");
+                return false;
+                }
+                
+        }
+        console.log("hello");
+    function onnumber(input)
+    {
+      var num=/[^0-9]/gi;
+      input.value=input.value.replace(num,"");
+    }
+    function ontext(input)
+    {
+      var testcase = /[^a-zA-Z]+$/;
+      console.log(input);
+    input.value=input.value.replace(text,"");
+    }
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>INFOSYS SPRING</h1>
+    </header>
+    <br> <br>
+    <div class="container">
+        <form ng-submit="createEntry()" name="createform" onsubmit="return validateForm()">
+            <div class="mt-3">
+                <div class="row">
+                    <div class="offset-md-1 col-md-8">
+                        <label for="id" class="form-label">Employee ID</label>
+                        <input type="number" ng-model="id" class="form-control" required>
+                    </div>
+                    <div class="offset-md-1 col-md-8">
+                        <label for="name" class="form-label">Employee Name</label>
+                        <input type="text" ng-model="name" class="form-control" id="name" name="name" maxlength="20"  required>
+                    </div>
+                    <div class="offset-md-1 col-md-8">
+                        <label for="phone_num" class="form-label">Salary</label>
+                        <input type="number" ng-model="phone_num" class="form-control" id="phone_num" name="phone_num" onkeydown="onnumber()" required>
+                    </div>
+                    <br>
+                    <div class="offset-md-1 col-md-8">
+                        <label for="email" class="form-label">Employee Email</label>
+                        <input type="email" ng-model="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <br>
+                    <div class="offset-md-1 col-md-8">
+                        <label for="" class="form-label">Department</label>
+                            <select class="form-select form-select-lg" ng-model="booking_status" id="" required>
+                                <option selected disabled value="">Select one</option>
+                                <option value="Testing">Testing</option>
+                                <option value="Deployment">Deployment</option>
+                                <option value="Customer Care">Customer Care</option>
+                                <option value="Advertising">Advertising</option>
+                            </select>
+                    </div>
+
+                </div>
+            </div>
+            
+            
+            <div class="mt-5 d-flex justify-content-center">
+                <input type="submit" value="Create" class="btn btn-success" onclick="validate()">
+            </div>
+        </form>
+    </div>
+</body>
+
+
+</html>

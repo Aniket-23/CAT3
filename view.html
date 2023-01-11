@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div ng-controller="MyController">
+        <section id="tableSection" class="container mt-5">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="bg-primary">
+                        <th scope="col">Employee ID</th>
+                        <th scope="col">Employee Name</th>
+                        <th scope="col">Salary</th>
+                        <th scope="col">Employee Email</th>
+                        <th scope="col">Department</th>
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in datas | limitTo: limit | orderBy:order">
+                       
+                            <td scope="row">{{data.id}}</td>
+                            <td>{{data.name}}</td>
+                            <td>{{data.phone_num}}</td>
+                            <td>{{data.email}}</td>
+                            <td>{{data.booking_status}}</td>
+                        
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+
+</html>
